@@ -6,11 +6,13 @@
     series = [],
     horizontal,
     options = {},
+    stacked,
   } = defineProps<{
     labels: string[]
     series: ApexAxisChartSeries
     horizontal?: boolean
     options?: ApexOptions
+    stacked?: boolean
   }>()
 
   const xAxisLabels = computed(() => labels)
@@ -18,9 +20,18 @@
   // @ts-expect-error todo: fix types
   const mergedOptions = computed<ApexOptions>(() =>
     defu(options, {
-      chart: { type: 'bar' },
+      chart: { type: 'bar', stacked },
       xaxis: { categories: xAxisLabels.value },
-      ...(horizontal && { plotOptions: { bar: { horizontal: true } } }),
+      plotOptions: {
+        bar: {
+          horizontal: horizontal || false,
+        },
+      },
+      dataLabels: {
+        formatter(val: any) {
+          return val ? `${val}` : ''
+        },
+      },
     }),
   )
 </script>
