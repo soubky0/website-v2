@@ -15,12 +15,16 @@ runs:
       run: corepack enable
       shell: bash
 
-    - name: Setup node & pnpm
+    - name: Setup node
       uses: actions/setup-node@v4
       with:
         node-version: lts/*
         check-latest: true
         cache: pnpm
+
+    - name: Install pnpm version
+      run: corepack prepare pnpm@9.11.0 --activate
+      shell: bash
 
     - name: Install dependencies
       if: ${{ inputs.install-deps == 'true' }}
