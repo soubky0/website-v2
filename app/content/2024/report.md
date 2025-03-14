@@ -478,7 +478,7 @@ We asked the participants about their salary satisfaction 😊. More than 50% th
   :series='[30.3, 54.2, 1.6, 13.9]'>
 </ContentChartPie>
 
-#### Salary Salary Satisfaction by Gender
+#### Salary Satisfaction by Gender
 
 We wanted to see the gender distribution between these answers 👩🏽 👨🏼
 
