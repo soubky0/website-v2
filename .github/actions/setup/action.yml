@@ -11,13 +11,13 @@ runs:
   using: composite
 
   steps:
-    - name: Setup pnpm
-      uses: pnpm/action-setup@v2
-      with:
-        version: 9.11.0
-        run_install: false
+    - name: Enable corepack
+      run: |
+        npm i -g --force corepack # TODO: remove when https://github.com/actions/setup-node/issues/1222 is resolved
+        corepack enable
+      shell: bash
 
-    - name: Setup node
+    - name: Setup node & pnpm
       uses: actions/setup-node@v4
       with:
         node-version: lts/*
