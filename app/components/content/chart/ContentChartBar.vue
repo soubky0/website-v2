@@ -4,7 +4,7 @@
   const {
     labels = [],
     series = [],
-    horizontal,
+    horizontal = false,
     options = {},
     stacked,
   } = defineProps<{
@@ -17,16 +17,11 @@
 
   const xAxisLabels = computed(() => labels)
 
-  // @ts-expect-error todo: fix types
   const mergedOptions = computed<ApexOptions>(() =>
     defu(options, {
-      chart: { type: 'bar', stacked },
+      chart: { type: 'bar' as const, stacked },
       xaxis: { categories: xAxisLabels.value },
-      plotOptions: {
-        bar: {
-          horizontal: horizontal || false,
-        },
-      },
+      plotOptions: { bar: { horizontal } },
       dataLabels: {
         formatter(val: any) {
           return val ? `${val}` : ''
