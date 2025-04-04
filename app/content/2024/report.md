@@ -484,6 +484,7 @@ We wanted to see the gender distribution between these answers 👩🏽 👨🏼
 
 <ContentChartBar
   :y-axis-percentage='true'
+  :stacked='true'
   :labels='["Male", "Female"]'
   :series='[
     {
@@ -502,8 +503,7 @@ We wanted to see the gender distribution between these answers 👩🏽 👨🏼
       "name": "Not sure",
       "data": [12.2, 19.0]
     }
-  ]'
-  :stacked='true'>
+  ]'>
 </ContentChartBar>
 
 #### Level Satisfaction by Gender
@@ -512,6 +512,7 @@ More 61% of the participants think they are placed in the level they deserve �
 
 <ContentChartBar
   :y-axis-percentage='true'
+  :stacked='true'
   :labels='["Male", "Female"]'
   :series='[
     {
@@ -530,8 +531,7 @@ More 61% of the participants think they are placed in the level they deserve �
       "name": "Not sure",
       "data": [9.3, 15.1]
     }
-  ]'
-  :stacked='true'>
+  ]'>
 </ContentChartBar>
 
 ### Value
